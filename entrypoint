@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd /var/www/html
+composer install
+cd web
+drush sql-drop -y
+drush sqlc < loyaltydb.sql
+drush cr
+drush cim -y
+drush updb -y
+drush cr
