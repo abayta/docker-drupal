@@ -1,9 +1,16 @@
 #!/bin/bash
 
 cd /var/www/html
+echo "Start compose install"
 composer install
+echo "Start cd web"
 cd web
+echo "Start drush cr"
 drush cr
+echo "Start drush cim -y"
 drush cim -y
+echo "Start drush updb -y"
 drush updb -y
+echo "Start drush cr"
 drush cr
+echo "End entrypoint"
