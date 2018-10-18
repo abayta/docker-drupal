@@ -2,7 +2,7 @@
 
 echo "Fixing permissions"
 cd /
-bash fix-permissions.sh --drupal_path=$WEB_DOCUMENT_ROOT --drupal_user=application
+exe fix-permissions.sh --drupal_path=$WEB_DOCUMENT_ROOT --drupal_user=application
 
 cd /var/www/html
 echo "Start compose install"
