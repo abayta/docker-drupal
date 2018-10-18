@@ -9,5 +9,3 @@ RUN ln -s $HOME/.composer/vendor/bin/drush /usr/bin/drush
 COPY entrypoint /entrypoint.d/drush.sh
 RUN chmod +x /entrypoint.d/drush.sh
 
-COPY fix-permissions.sh /
-
