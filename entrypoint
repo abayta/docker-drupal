@@ -3,8 +3,8 @@
 cd /var/www/html
 echo "Start compose install"
 composer install
-echo "Fixing permissions"
-exec ./fix-permissions.sh --drupal_path=$WEB_DOCUMENT_ROOT --drupal_user=application
+#echo "Fixing permissions"
+#exec ./fix-permissions.sh --drupal_path=$WEB_DOCUMENT_ROOT --drupal_user=application
 echo "Start cd web"
 cd web
 echo "Start drush cr"
