@@ -3,26 +3,17 @@
 drupal_user=${2:-application}
 httpd_group="${3:-www-data}"
 
-
-if [ -z "${drupal_user}" ] || [[ $(id -un "${drupal_user}" 2> /dev/null) != "${drupal_user}" ]]; then
-  printf "*************************************\n"
-  printf "* Error: Please provide a valid user. *\n"
-  printf "*************************************\n"
-  print_help
-  exit 1
-fi
-
 cd /var/www/html/web
 printf "Changing ownership of all contents of :\n user =>  \t group => ""\n"
 chown -R ${drupal_user}:${httpd_group} .
 
-printf "Changing permissions of all directories insid...\n"
+printf "Changing permissions of all directories of drupal\n"
 find . -type d -exec chmod u=rwx,g=rx,o= '{}' \;
 
-printf "Changing permissions of all files inside ...\n"
+printf "Changing permissions of all files of drupal"
 find . -type f -exec chmod u=rw,g=r,o= '{}' \;
 
-printf "Changing permissions of ...\n"
+printf "Changing permissions of /sites \n"
 cd sites
 find . -type d -name files -exec chmod ug=rwx,o= '{}' \;
 
